@@ -20,7 +20,12 @@ export const generateImage = async (req, res) => {
           data: base64Image,
         },
       },
-      `Describe this outfit. Then suggest detailed fashion stylizations for the same outfit for three occasions: Office, Party, and Vacation — in the tone of a Pinterest editorial stylist. Format output as JSON with keys "Office", "Party", and "Vacation".`,
+      ` Describe this outfit. Then suggest detailed fashion stylizations for the same outfit for three occasions: Office, Party, and Vacation — in the tone of a Pinterest editorial stylist.
+
+  ⦁ Retain the original outfit and output format in all three versions (consistency is important).
+  ⦁ Feel realistic and fashion-forward.
+
+  Format output as JSON with keys "Office", "Party", and "Vacation".`,
     ]);
 
     const rawText = result.response.text().trim();
@@ -36,7 +41,12 @@ export const generateImage = async (req, res) => {
     const imageUrls = {};
 
     for (const occasion of ["Office", "Party", "Vacation"]) {
-      const prompt = `Create a Pinterest-style editorial fashion image for the following style: ${styleVariants[occasion]}`;
+      const prompt = `Create a Pinterest-style editorial fashion image for the following style: ${styleVariants[occasion]}
+
+⦁ Retain the original outfit and output format in all three versions (consistency is important).
+⦁ Feel realistic and fashion-forward.
+
+The image should stay true to the outfit while adding styling details appropriate for the given occasion: Office, Party, or Vacation`;
       const buffer = await generateImagesWithAI(prompt);
       const tempPath = `temp-${occasion}-${Date.now()}.png`;
       fs.writeFileSync(tempPath, buffer);
