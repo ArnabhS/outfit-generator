@@ -100,7 +100,12 @@ Outfit Style: ${styleVariants[occasion]}
 Occasion: ${occasion}
 
 Instructions:
-- Keep the original outfit consistent.
+- Preserve the original outfit structure exactly, including sleeve length, neckline, hem, and proportions.
+- If the original has short sleeves, the stylized image must also have short sleeves. Do NOT add long sleeves.
+- Avoid outfit duplication or layering of the same outfit — keep the outfit clean and singular.
+- Maintain garment fit (loose/tight) and category (shirt, dress, pants, etc.) as in the original.
+- Do NOT introduce clothing that was not present in the original unless it’s a styling accessory (e.g., bag, sunglasses).
+- Only change styling elements (e.g., accessories, background, textures) appropriate for the specified occasion.
 - Stylize it realistically for ${occasion.toLowerCase()} based on the following:
   • Office: Professional, polished. Corporate colors, subtle accessories.
   • Party: Festive, bold colors, modern chic vibes.
