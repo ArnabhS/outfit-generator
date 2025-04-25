@@ -5,7 +5,7 @@ import { Buffer } from "node:buffer";
 
 export async function generateImagesWithAI(contents) {
 
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyBjj5CImmtEhmZDzoow9rAz61R81A2DFD4" });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
 
  
 
@@ -18,7 +18,7 @@ export async function generateImagesWithAI(contents) {
     },
   });
   for (const part of response.candidates[0].content.parts) {
-    // Based on the part type, either show the text or save the image
+   
     if (part.text) {
       console.log(part.text);
     } else if (part.inlineData) {
