@@ -77,16 +77,14 @@ Feels wearable and stylish in real life`,
 
     let styleVariants;
     try {
-      
       const jsonMatch = rawText.match(/{[\s\S]*}/);
       if (!jsonMatch) throw new Error("No JSON found in Gemini response");
-    
+
       styleVariants = JSON.parse(jsonMatch[0]);
     } catch (err) {
       console.error("Failed to parse Gemini JSON:", rawText);
       throw err;
     }
-    
 
     const imageUrls = {};
 
@@ -104,7 +102,6 @@ Instructions:
 - If the original has short sleeves, the stylized image must also have short sleeves. Do NOT add long sleeves.
 - Avoid outfit duplication or layering of the same outfit — keep the outfit clean and singular.
 - Maintain garment fit (loose/tight) and category (shirt, dress, pants, etc.) as in the original.
-- Do NOT introduce clothing that was not present in the original unless it’s a styling accessory (e.g., bag, sunglasses).
 - Only change styling elements (e.g., accessories, background, textures) appropriate for the specified occasion.
 - Stylize it realistically for ${occasion.toLowerCase()} based on the following:
   • Office: Professional, polished. Corporate colors, subtle accessories.
@@ -113,6 +110,14 @@ Instructions:
 - Follow real-life fashion photography aesthetics: natural skin textures, realistic lighting and shadows, and accurate body proportions.
 - Strictly avoid anything that looks AI-generated, animated, or cartoonishs.
 - Think Vogue, Pinterest, or Harpers Bazaar photo quality.
+
+Strictly avoid:
+- AVOID changing the color of the outfit.
+- Switching to mannequin for one variation
+- Changing the angle or perspective
+- Modifying outfit structure or length
+- Introducing clothing that was not present in the original unless it’s a styling accessory (e.g., bag, sunglasses).
+- Using different layout for different images
 
 Photographic Style:
 - Realistic face and skin tone
